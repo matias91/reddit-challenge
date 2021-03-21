@@ -1,14 +1,20 @@
 import React from 'react';
+import { connect } from 'react-redux';
 import logo from './logo.svg';
-import { Counter } from './features/counter/Counter';
 import './App.css';
 
-function App() {
+// @Actions
+import RedditActions from './redux/RedditRedux';
+
+function App({ fetchTop }) {
+  React.useEffect(() => {
+    fetchTop();
+  }, [fetchTop]);
+
   return (
     <div className="App">
       <header className="App-header">
         <img src={logo} className="App-logo" alt="logo" />
-        <Counter />
         <p>
           Edit <code>src/App.js</code> and save to reload.
         </p>
@@ -55,4 +61,8 @@ function App() {
   );
 }
 
-export default App;
+const mapDispatchToProps = {
+  fetchTop: RedditActions.fetchTopRequest
+};
+
+export default connect(null, mapDispatchToProps)(App);
