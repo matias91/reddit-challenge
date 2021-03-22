@@ -2,6 +2,7 @@
 import React from 'react';
 import { connect } from 'react-redux';
 import PropTypes from 'prop-types';
+import { CSSTransition, TransitionGroup } from 'react-transition-group';
 
 // @Components
 import Post from '../../commons/Post/Post';
@@ -23,11 +24,13 @@ function PostsList({ after, before, count, dismissAllPosts, fetchTop, fetching, 
 
   const renderPosts = () => {
     return posts.map((post, index) =>
-      <Post
-        index={index}
-        key={index}
-        post={post.data}
-      />
+      <CSSTransition key={post.data.author_fullname} timeout={500} classNames="move">
+        <Post
+          index={index}
+          key={index}
+          post={post.data}
+        />
+      </CSSTransition>
     )
   }
 
@@ -36,15 +39,15 @@ function PostsList({ after, before, count, dismissAllPosts, fetchTop, fetching, 
   return (
     <aside className='PostsList'>
       <header className='PostsList-header'>
-        <button disabled={count === 50 || !posts.length} onClick={prevPage} style={{ borderRadius: 25, backgroundColor: '#FFF', border: 0, height: 50, width: 50, cursor: 'pointer' }}>
-          <p>Prev</p>
+        <button className='PostsList-button' disabled={count === 50 || !posts.length} onClick={prevPage}>
+          <span className='PostsList-button-icon'>&#10094;</span>
         </button>
         <h2>Reddit Posts</h2>
-        <button disabled={!posts.length} onClick={nextPage} style={{ borderRadius: 25, backgroundColor: '#FFF', border: 0, height: 50, width: 50, cursor: 'pointer' }}>
-          <p>Next</p>
+        <button className='PostsList-button' disabled={!posts.length} onClick={nextPage}>
+          <span className='PostsList-button-icon'>&#10095;</span>
         </button>
       </header>
-      <ul className='PostsList-list'>
+      <TransitionGroup className="PostsList-list">
         {
           fetching &&
           <div style={{ display: 'flex', flex: 1, alignItems: 'center', justifyContent: 'center' }}>
@@ -52,7 +55,7 @@ function PostsList({ after, before, count, dismissAllPosts, fetchTop, fetching, 
           </div>
         }
         {postsArray}
-      </ul>
+      </TransitionGroup>
       <footer className='PostsList-footer' onClick={dismissAllPosts}>
         Dismiss All
       </footer>

@@ -22,6 +22,28 @@
   margin: 0;
 }
 
+.PostsList-button {
+  align-items: center;
+  border-radius: 25px;
+  background-color: #FFF;
+  border: 0;
+  display: flex;
+  height: 50px;
+  justify-content: center;
+  width: 50px;
+  cursor: pointer
+}
+
+.PostsList-button:disabled {
+  cursor: not-allowed;
+  opacity: 0.5;
+}
+
+.PostsList-button-icon {
+  color: #000;
+  font-size: 24px;
+}
+
 .PostsList-list {
   background-color: #000;
   display: flex;
@@ -58,4 +80,26 @@
 @keyframes spin {
   0% { transform: rotate(0deg); }
   100% { transform: rotate(360deg); }
+}
+
+.move-enter {
+  opacity: 0.01;
+  transform: translate(-400px, 0)
+}
+
+.move-enter-active {
+  opacity: 1;
+  transform: translate(0, 0);
+  transition: all 500ms ease-in;
+}
+
+.move-exit {
+  opacity: 1;
+  transform: translate(0, 0)
+}
+
+.move-exit-active {
+  opacity: 0.01;
+  transform: translate(400px, 0);
+  transition: all 500ms ease-in;
 }
