@@ -12,7 +12,7 @@ import RedditActions from '../../../redux/RedditRedux';
 // @Styles
 import './PostsList.css';
 
-function PostsList({ after, before, count, dissmissAllPosts, fetchTop, fetching, posts }) {
+function PostsList({ after, before, count, dismissAllPosts, fetchTop, fetching, posts }) {
   React.useEffect(() => {
     fetchTop();
   }, [fetchTop]);
@@ -53,7 +53,7 @@ function PostsList({ after, before, count, dissmissAllPosts, fetchTop, fetching,
         }
         {postsArray}
       </ul>
-      <footer className='PostsList-footer' onClick={dissmissAllPosts}>
+      <footer className='PostsList-footer' onClick={dismissAllPosts}>
         Dismiss All
       </footer>
     </aside >
@@ -64,7 +64,7 @@ PostsList.propTypes = {
   after: PropTypes.string,
   before: PropTypes.string,
   count: PropTypes.number,
-  dissmissAllPosts: PropTypes.func,
+  dismissAllPosts: PropTypes.func,
   fetchTop: PropTypes.func,
   fetching: PropTypes.bool,
   posts: PropTypes.array
@@ -81,7 +81,7 @@ const mapStateToProps = ({ reddit }) => {
 };
 
 const mapDispatchToProps = {
-  dissmissAllPosts: RedditActions.dissmissAllPosts,
+  dismissAllPosts: RedditActions.dismissAllPosts,
   fetchTop: RedditActions.fetchTopRequest,
 };
 

@@ -10,7 +10,7 @@ import RedditActions from '../../../redux/RedditRedux';
 // @Styles
 import './Post.css';
 
-function Post({ dissmissPost, index, post, setSelectedPost }) {
+function Post({ dismissPost, index, post, setSelectedPost }) {
   const { author, created, num_comments, thumbnail, title } = post;
   const [read, setRead] = React.useState(false);
 
@@ -25,7 +25,7 @@ function Post({ dissmissPost, index, post, setSelectedPost }) {
     evt.preventDefault();
     evt.stopPropagation();
 
-    dissmissPost(index);
+    dismissPost(index);
   }
 
   const statusElem = !read && <span className='Post-status'></span>
@@ -59,14 +59,14 @@ function Post({ dissmissPost, index, post, setSelectedPost }) {
 }
 
 Post.propTypes = {
-  dissmissPost: PropTypes.func,
+  dismissPost: PropTypes.func,
   index: PropTypes.number,
   post: PropTypes.object,
   setSelectedPost: PropTypes.func
 }
 
 const mapDispatchToProps = {
-  dissmissPost: RedditActions.dissmissPost,
+  dismissPost: RedditActions.dismissPost,
   setSelectedPost: RedditActions.setSelectedPost
 };
 

@@ -11,10 +11,10 @@ const { Types, Creators } = createActions({
   fetchTopFailure: ['response'],
   // SET SELECTED POST
   setSelectedPost: ['selectedPost'],
-  // DISSMISS POST
-  dissmissPost: ['postIndex'],
-  // DISSMISS ALL POSTS
-  dissmissAllPosts: null,
+  // DISMISS POST
+  dismissPost: ['postIndex'],
+  // DISMISS ALL POSTS
+  dismissAllPosts: null,
 });
 
 export const RedditTypes = Types;
@@ -76,13 +76,13 @@ export const setSelectedPost = (state, { selectedPost }) =>
     selectedPost
   });
 
-export const dissmissPost = (state, { postIndex }) =>
+export const dismissPost = (state, { postIndex }) =>
   state.merge({
     posts: state.posts.filter((post, index) => index !== postIndex),
     selectedPost: null
   });
 
-export const dissmissAllPosts = (state) =>
+export const dismissAllPosts = (state) =>
   state.merge(INITIAL_STATE);
 
 /* ------------- Hookup Reducers To Types ------------- */
@@ -94,8 +94,8 @@ export const reducer = createReducer(INITIAL_STATE, {
   [Types.FETCH_TOP_FAILURE]: failure,
   // SET SELECTED POST
   [Types.SET_SELECTED_POST]: setSelectedPost,
-  // DISSMISS POST
-  [Types.DISSMISS_POST]: dissmissPost,
-  // DISSMISS ALL POSTS
-  [Types.DISSMISS_ALL_POSTS]: dissmissAllPosts,
+  // DISMISS POST
+  [Types.DISMISS_POST]: dismissPost,
+  // DISMISS ALL POSTS
+  [Types.DISMISS_ALL_POSTS]: dismissAllPosts,
 });
