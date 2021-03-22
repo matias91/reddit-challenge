@@ -1,0 +1,95 @@
+.Post {
+  background-color: #000;
+  border-bottom: 1px solid grey;
+  color: #FFF;
+  list-style: none;
+  padding: 15px 0;
+}
+
+.Post-header {
+  position: relative;
+}
+
+.Post-status::before {
+  background-color: dodgerblue;
+  border-radius: 50%;
+  content: '';
+  height: 10px;
+  left: 10px;
+  position: absolute;
+  width: 10px;
+}
+
+.Post-author {
+  font-size: 20px;
+  margin-left: 30px;
+}
+
+.Post-date {
+  margin-left: 20px;
+}
+
+.Post-body {
+  align-items: center;
+  display: flex;
+  flex-direction: row;
+  margin: 15px 0px;
+  position: relative;
+}
+
+.Post-thumbnail {
+  height: 100px;
+  margin-left: 10px;
+  object-fit: contain;
+  width: 100px;
+}
+
+.Post-title {
+  flex: 0.9;
+  font-size: 12px;
+  margin-left: 10px;
+}
+
+.Post-arrow::before {
+  border-right: 2px solid grey;
+  border-top: 2px solid grey;
+  content: '';
+  height: 10px;
+  position: absolute;
+  right: 15px;
+  transform: rotate(45deg);
+  width: 10px;
+}
+
+.Post-footer {
+  align-items: center;
+  display: flex;
+  flex-direction: row;
+}
+
+.Post-footer div {
+  flex: 0.5;
+}
+
+.Post-button {
+  background-color: transparent;
+  border: none;
+  color: #FFF;
+  cursor: pointer;
+  font-size: 16px;
+}
+
+.Post-dismiss {
+  display: inline-block;
+  border: 2px solid orange;
+  border-radius: 50%;
+  color: orange;
+  height: 20px;
+  line-height: 20px;
+  text-align: center;
+  width: 20px;
+}
+
+.Post-comments {
+  color: orange;
+}
