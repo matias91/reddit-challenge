@@ -1,5 +1,7 @@
 // @Vendors
-import { resettableReducer } from 'reduxsauce';
+import { combineReducers } from 'redux';
+
+import { reducer } from './RedditRedux';
 
 // @Store
 import configureStore from './Store';
@@ -7,11 +9,9 @@ import configureStore from './Store';
 // @Sagas
 import rootSaga from '../sagas';
 
-const resettable = resettableReducer('RESET');
-
-const rootReducer = {
-  reddit: resettable(require('./RedditRedux').reducer)
-}
+const rootReducer = combineReducers({
+  reddit: reducer
+});
 
 const store = configureStore(rootReducer, rootSaga);
 

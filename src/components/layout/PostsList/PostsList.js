@@ -14,7 +14,7 @@ import './PostsList.css';
 
 function PostsList({ after, before, count, dismissAllPosts, fetchTop, fetching, posts }) {
   React.useEffect(() => {
-    fetchTop();
+    !posts.length && fetchTop();
   }, [fetchTop]);
 
   const nextPage = () => fetchTop(after);
