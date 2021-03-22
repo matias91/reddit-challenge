@@ -1,0 +1,26 @@
+.PostDetail {
+  flex: 0.7;
+  height: 100%;
+  overflow: auto;
+}
+
+.PostDetail-header,
+.PostDetail-body,
+.PostDetail-footer {
+  margin: 20px;
+}
+
+.PostDetail-author {
+  font-size: 25px;
+}
+
+.PostDetail-body {
+  display: flex;
+  justify-content: center;
+}
+
+.PostDetail-thumbnail {
+  height: 300px;
+  object-fit: contain;
+  width: 300px;
+}
