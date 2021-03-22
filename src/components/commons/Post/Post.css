@@ -2,8 +2,14 @@
   background-color: #000;
   border-bottom: 1px solid grey;
   color: #FFF;
+  cursor: pointer;
   list-style: none;
   padding: 15px 0;
+  transition: opacity 0.5s;
+}
+
+.Post:hover {
+  opacity: 0.5;
 }
 
 .Post-header {
