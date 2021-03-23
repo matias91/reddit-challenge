@@ -16,7 +16,7 @@ import './PostsList.css';
 function PostsList({ after, before, count, dismissAllPosts, fetchTop, fetching, posts }) {
   React.useEffect(() => {
     !posts.length && fetchTop();
-  }, [fetchTop]);
+  }, [fetchTop]); // eslint-disable-line
 
   const nextPage = () => fetchTop(after);
 
