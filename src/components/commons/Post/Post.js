@@ -32,7 +32,7 @@ function Post({ dismissPost, index, post, setSelectedPost }) {
   const thumbnailElem = thumbnail && <img className='Post-thumbnail' src={thumbnail} alt='thumbnail' />
 
   return (
-    <li className='Post' onClick={showDetails}>
+    <li className='Post' data-testid='post' onClick={showDetails}>
       <header className='Post-header'>
         {statusElem}
         <span className='Post-author'>{author}</span>

@@ -7,7 +7,7 @@ import './PostDetail.css';
 
 export default function PostDetail({ post }) {
   const { author, thumbnail, title } = post;
-  const thumbnailElem = thumbnail && <img className='PostDetail-thumbnail' src={thumbnail} alt='thumbnail' />
+  const thumbnailElem = thumbnail && <img className='PostDetail-thumbnail' src={thumbnail} alt={title} />
 
   return (
     <article className='PostDetail'>
