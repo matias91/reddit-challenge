@@ -11,7 +11,7 @@ import './App.css';
 
 function App({ selectedPost }) {
   return (
-    <main className="App">
+    <main className='App'>
       <PostsList />
 
       {selectedPost && <PostDetail post={selectedPost} />}

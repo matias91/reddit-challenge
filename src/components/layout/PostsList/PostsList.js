@@ -24,7 +24,7 @@ function PostsList({ after, before, count, dismissAllPosts, fetchTop, fetching, 
 
   const renderPosts = () => {
     return posts.map((post, index) =>
-      <CSSTransition key={post.data.author_fullname} timeout={500} classNames="move">
+      <CSSTransition key={post.data.author_fullname} timeout={500} classNames='move'>
         <Post
           index={index}
           key={index}
@@ -47,15 +47,15 @@ function PostsList({ after, before, count, dismissAllPosts, fetchTop, fetching, 
           <span className='PostsList-button-icon'>&#10095;</span>
         </button>
       </header>
-      <TransitionGroup className="PostsList-list">
-        {
-          fetching &&
-          <div style={{ display: 'flex', flex: 1, alignItems: 'center', justifyContent: 'center' }}>
-            <div className="loader" />
-          </div>
-        }
-        {postsArray}
-      </TransitionGroup>
+      {
+        fetching ?
+          <div className={'loader-container'} style={{}}>
+            <div className='loader' data-testid='loader' />
+          </div> :
+          <TransitionGroup className='PostsList-list' component='ul'>
+            {postsArray}
+          </TransitionGroup>
+      }
       <footer className='PostsList-footer' onClick={dismissAllPosts}>
         Dismiss All
       </footer>
